@@ -8,87 +8,122 @@
 </head>
 <body>
 <main class="doc">
-  <nav class="lang-switch"><a href="#en">English</a><a href="#ko">한국어</a></nav>
+  <nav class="lang-switch"><a href="#en">English</a><a href="#ko">한국어</a><a href="/joygps/terms.html">Terms / 이용약관</a></nav>
   <article id="en" lang="en">
 <h1>JoyGPS Privacy Policy</h1>
-<p class="meta">Effective date: October 13, 2026</p>
-<p>JoyGPS ("the app") is a location simulation tool for Android developed by ohgoru ("we"). This policy explains what information the app uses and how.</p>
-<h2>1. Information we collect</h2>
-<p>We do not operate any server for the app, and we do not collect, store, or sell your personal information. Everything you create in the app stays on your device.</p>
-<h2>2. Information processed on your device</h2>
+<p class="meta">Effective date: October 14, 2026</p>
+<p>JoyGPS ("the app") is a location simulation tool for Android developed by ohgoru ("we"). This policy explains what information the app uses, where it goes, and how you can control it. The app has no sign-up or login, and we do not operate a server that receives your data. Some third-party services described below process data so that the map, ads, and subscriptions can work.</p>
+
+<h2>1. Information processed only on your device</h2>
 <ul>
-<li><strong>Location</strong>: With your permission, the app reads your device's last known location only to use it as a starting point for simulation. Your real location and the simulated (mock) locations are processed on your device and are not sent to us.</li>
-<li><strong>Favorites, routes, and settings</strong>: Saved only on your device. They are deleted when you uninstall the app.</li>
-<li><strong>Clipboard</strong>: The app reads the clipboard only when you tap the paste button, to read coordinates.</li>
+<li><strong>Your device's last known location</strong>: With your permission, the app reads the last location your device already knows, to set the starting point of the simulation and the initial map position. The app does not continuously track your location and does not send it to us.</li>
+<li><strong>Simulated location</strong>: The location you choose is provided to the Android location system so that other apps receive it as the device location. How those apps use it is governed by their own policies.</li>
+<li><strong>Favorites, saved routes, folders, and settings</strong>: Stored in the app's internal storage, including the last simulated location and speed so you can continue later.</li>
+<li><strong>Clipboard</strong>: The app reads the clipboard only when you tap a paste button, to read coordinates. It writes to the clipboard only when you tap a copy button.</li>
 </ul>
-<h2>3. Third-party services</h2>
-<p>The app uses the following third-party services. Their own privacy policies apply to the information they receive.</p>
+
+<h2>2. Third-party services</h2>
 <ul>
-<li><strong>Google AdMob (advertising)</strong>: Shows banner, rewarded, and interstitial ads. AdMob may collect device identifiers (such as the advertising ID), IP address, approximate location derived from IP, device information, and ad interaction data to show and measure ads. In the European Economic Area, the United Kingdom, and Switzerland, we ask for your consent through Google's consent tool before personalized ads are shown, and you can change your choice at any time in the app's settings.<br>How Google uses data: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></li>
-<li><strong>Google Play services (place search)</strong>: When you search for a place, the search text is sent to Google through Android's built-in geocoding service to find matching locations.<br>Google Privacy Policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
-<li><strong>OpenFreeMap (map tiles)</strong>: To display the map, the app downloads map images from OpenFreeMap. These requests include your IP address and the map area being viewed.<br><a href="https://openfreemap.org">https://openfreemap.org</a></li>
+<li><strong>Map (OpenFreeMap)</strong>: To display the map, the app downloads the map style, map tiles, and fonts from <code>tiles.openfreemap.org</code>. These requests include your IP address and, through the requested tiles, the map area being viewed. According to OpenFreeMap's privacy policy, normal access logs do not contain IP addresses; error logs may contain the IP address and requested URL and are deleted after 7 days; if abuse or a security threat is detected, IP logging may be enabled temporarily for up to 30 days; no cookies or tracking technologies are used; and Cloudflare may be used as a CDN.<br><a href="https://openfreemap.org/privacy/">https://openfreemap.org/privacy/</a></li>
+<li><strong>Place search (Android geocoding service)</strong>: When you search for a place, the search text is passed to Android's built-in geocoding service, which may send it to Google (on devices with Google Play services) to find matching locations. The app does not store your search text.<br>Google Privacy Policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+<li><strong>Ads (Google AdMob, Google User Messaging Platform)</strong>: For users without a subscription, the app shows a banner ad, rewarded ads, and interstitial ads. According to Google, the Google Mobile Ads SDK automatically collects and shares your IP address (which may be used to estimate general location), app interactions (such as app launches, taps, and video views), diagnostic information (such as app launch time and hang rate), and device identifiers (such as the Android advertising ID and app set ID), for advertising, analytics, and fraud prevention. This data is encrypted in transit. In regions where consent is required (such as the European Economic Area, the United Kingdom, and Switzerland), Google's consent form is shown, and you can change your choice at any time in the app's settings ("Privacy settings"). <strong>The app does not request ads for subscribers.</strong><br>How Google uses data: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></li>
+<li><strong>Subscription payments (Google Play)</strong>: Payments are processed by Google Play. The app and we do not receive your card number or other payment details.</li>
+<li><strong>Subscription status (RevenueCat)</strong>: To check your subscription and restore purchases, RevenueCat processes your purchase history (products, purchase, renewal, and expiration information), an anonymous user ID created automatically by the app (shown as "Support ID" in the app's settings), and your language and currency codes. RevenueCat does not receive your name, email address, or phone number from the app, and the app turns off RevenueCat's automatic collection of device identifiers such as the advertising ID. This data is encrypted in transit.<br>RevenueCat Privacy Policy: <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a></li>
 </ul>
+
+<h2>3. Backups</h2>
+<ul>
+<li><strong>Android backup</strong>: The app allows Android's automatic backup. If you have turned on Google backup on your device, the app's internal data (favorites, routes, folders, settings, and the last simulated location) may be included in your Google account backup and restored when you reinstall the app or set up a new device. This backup is handled by Google under your device's backup settings; we cannot access it.</li>
+<li><strong>Google Block Store (RevenueCat)</strong>: If you have made a purchase, the RevenueCat library stores your anonymous user ID in Google Block Store (a storage on your device managed by Google, which can be backed up to your Google account). This is used to reconnect your purchases after you reinstall the app. If you have no purchase history, it is not stored.</li>
+</ul>
+
 <h2>4. Permissions</h2>
 <ul>
-<li><strong>Location</strong>: Used as the starting point for simulation and to run the location simulation service.</li>
+<li><strong>Location (precise and approximate)</strong>: To read your device's last known location as described above. The app does not request background location permission.</li>
+<li><strong>Mock location app (Developer options)</strong>: Lets the app provide simulated locations to the system. You set this yourself in Developer options.</li>
+<li><strong>Foreground service (location)</strong>: Keeps the simulation you started running while you use other apps, together with a visible notification. You can stop it at any time from the notification.</li>
+<li><strong>Notifications</strong>: Shows the running status and stop buttons.</li>
 <li><strong>Display over other apps</strong>: Shows the joystick and control buttons on top of other apps.</li>
-<li><strong>Notifications</strong>: Shows a notification while the simulation is running.</li>
-<li><strong>Mock location app (Developer options)</strong>: Lets the app provide simulated locations to the system. This is set by you in Developer options.</li>
+<li><strong>Internet and network state</strong>: For the map, ads, and subscription checks.</li>
+<li><strong>Advertising ID</strong> (added by the ads library): Used for ads as described above.</li>
+<li><strong>Google Play billing</strong>: For subscription purchases.</li>
 </ul>
-<h2>5. Your choices</h2>
+
+<h2>5. Retention and deletion</h2>
 <ul>
-<li>You can turn off personalized ads or reset your advertising ID in your device settings (Settings &gt; Google &gt; Ads, or Settings &gt; Privacy &gt; Ads, depending on your device).</li>
-<li>In the EEA, UK, and Switzerland, you can review or change your ad consent at any time in the app's settings.</li>
-<li>You can remove all data stored by the app by uninstalling it.</li>
+<li>Data stored in the app is deleted when you uninstall the app or clear its data in Android settings. Copies in your Google backup follow your Google account settings.</li>
+<li><strong>Subscription data (RevenueCat)</strong>: To request deletion, email us with your Support ID from the app's settings. We will request deletion of the matching customer record from RevenueCat. Deletion is processed by RevenueCat and may not be completed immediately.</li>
+<li><strong>Deleting data does not cancel your subscription.</strong> To stop payments, cancel the subscription yourself in Google Play's subscription management. A subscription that is not canceled may continue to renew through Google Play, and using "Restore purchases" later may reconnect the subscription information.</li>
+<li>Ad-related data follows Google's policies. You can reset or delete your advertising ID in your device settings.</li>
 </ul>
+
 <h2>6. Children</h2>
-<p>The app is not directed to children under 13, and we do not knowingly collect information from children.</p>
+<p>The app is not directed to children under 13, and we do not knowingly collect personal information from children.</p>
+
 <h2>7. Changes</h2>
 <p>We may update this policy. Changes take effect when posted at this address, and the effective date above will be updated.</p>
+
 <h2>8. Contact</h2>
-<p>If you have questions about this policy, contact us at: <a href="mailto:rupioh99@gmail.com">rupioh99@gmail.com</a></p>
+<p>ohgoru — <a href="mailto:rupioh99@gmail.com">rupioh99@gmail.com</a></p>
   </article>
   <hr>
   <article id="ko" lang="ko">
 <h1>JoyGPS 개인정보처리방침</h1>
-<p class="meta">시행일: 2026년 10월 13일</p>
-<p>JoyGPS(이하 "앱")는 ohgoru(이하 "개발자")가 만든 안드로이드용 위치 시뮬레이션 도구입니다. 이 방침은 앱이 어떤 정보를 어떻게 사용하는지 설명합니다.</p>
-<h2>1. 수집하는 정보</h2>
-<p>개발자는 앱을 위한 서버를 운영하지 않으며, 이용자의 개인정보를 수집, 저장, 판매하지 않습니다. 앱에서 만든 모든 정보는 이용자의 기기에만 저장됩니다.</p>
-<h2>2. 기기 안에서 처리되는 정보</h2>
+<p class="meta">시행일: 2026년 10월 14일</p>
+<p>JoyGPS(이하 "앱")는 ohgoru(이하 "개발자")가 만든 안드로이드용 위치 시뮬레이션 도구입니다. 이 방침은 앱이 어떤 정보를 사용하고 어디로 전달되는지, 이용자가 어떻게 관리할 수 있는지 설명합니다. 앱에는 회원 가입·로그인 기능이 없으며, 개발자는 이용자의 정보를 받는 서버를 운영하지 않습니다. 다만 지도, 광고, 구독이 동작하도록 아래의 외부 서비스가 정보를 처리합니다.</p>
+
+<h2>1. 기기 안에서만 처리되는 정보</h2>
 <ul>
-<li><strong>위치</strong>: 이용자가 허용한 경우, 시뮬레이션 시작점으로 쓰기 위해서만 기기의 마지막 위치를 읽습니다. 실제 위치와 가상 위치는 기기 안에서 처리되며 개발자에게 전송되지 않습니다.</li>
-<li><strong>즐겨찾기, 경로, 설정</strong>: 기기에만 저장되며, 앱을 삭제하면 함께 삭제됩니다.</li>
-<li><strong>클립보드</strong>: 붙여넣기 버튼을 눌렀을 때만 좌표를 읽기 위해 클립보드를 읽습니다.</li>
+<li><strong>기기의 마지막 위치</strong>: 이용자가 허용한 경우, 시뮬레이션 시작점과 지도의 처음 위치를 정하기 위해 기기가 이미 알고 있는 마지막 위치를 읽습니다. 위치를 계속 추적하지 않으며 개발자에게 보내지 않습니다.</li>
+<li><strong>가상 위치</strong>: 이용자가 정한 위치를 안드로이드 위치 시스템에 제공하여 다른 앱이 기기 위치로 받게 합니다. 그 앱들이 위치를 어떻게 쓰는지는 각 앱의 정책을 따릅니다.</li>
+<li><strong>즐겨찾기, 저장 경로, 폴더, 설정</strong>: 앱 내부 저장소에 저장됩니다. 다음에 이어서 시작할 수 있도록 마지막 가상 위치와 속도도 저장합니다.</li>
+<li><strong>클립보드</strong>: 좌표를 읽기 위해 붙여넣기 버튼을 누를 때만 클립보드를 읽고, 복사 버튼을 누를 때만 클립보드에 씁니다.</li>
 </ul>
-<h2>3. 외부 서비스</h2>
-<p>앱은 다음 외부 서비스를 사용합니다. 각 서비스가 받는 정보에는 해당 서비스의 개인정보처리방침이 적용됩니다.</p>
+
+<h2>2. 외부 서비스</h2>
 <ul>
-<li><strong>Google AdMob (광고)</strong>: 배너, 보상형, 전면 광고를 표시합니다. AdMob은 광고 표시와 측정을 위해 기기 식별자(광고 ID 등), IP 주소, IP 기반 대략적 위치, 기기 정보, 광고 이용 기록을 수집할 수 있습니다. 유럽경제지역, 영국, 스위스에서는 맞춤형 광고 전에 Google 동의 도구로 동의를 받으며, 앱 설정에서 언제든 변경할 수 있습니다.<br>Google의 데이터 사용 방식: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></li>
-<li><strong>Google Play 서비스 (장소 검색)</strong>: 장소를 검색하면 검색어가 안드로이드 기본 위치 검색 기능을 통해 Google로 전송됩니다.<br>Google 개인정보처리방침: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
-<li><strong>OpenFreeMap (지도 이미지)</strong>: 지도를 표시하기 위해 OpenFreeMap에서 지도 이미지를 내려받습니다. 이 요청에는 IP 주소와 보고 있는 지도 영역이 포함됩니다.<br><a href="https://openfreemap.org">https://openfreemap.org</a></li>
+<li><strong>지도(OpenFreeMap)</strong>: 지도를 보여 주기 위해 지도 스타일·타일·글꼴을 <code>tiles.openfreemap.org</code> 에서 받습니다. 이 요청에는 IP 주소와, 요청하는 타일을 통해 화면에 보고 있는 지도 영역이 포함됩니다. OpenFreeMap 개인정보처리방침에 따르면 일반 접속 기록에는 IP 주소를 남기지 않고, 오류 기록에는 IP 주소와 요청 주소가 포함될 수 있으며 7일 후 삭제됩니다. 남용이나 보안 위협이 감지되면 최대 30일 동안 IP 기록을 임시로 남길 수 있고, 쿠키나 추적 기술은 쓰지 않으며, 전송 네트워크(CDN)로 Cloudflare 를 쓸 수 있습니다.<br><a href="https://openfreemap.org/privacy/">https://openfreemap.org/privacy/</a></li>
+<li><strong>장소 검색(안드로이드 위치 검색 기능)</strong>: 장소를 검색하면 검색어가 안드로이드 기본 위치 검색 기능(Geocoder)으로 전달되며, Google Play 서비스가 있는 기기에서는 일치하는 장소를 찾기 위해 Google 로 전송될 수 있습니다. 앱은 검색어를 저장하지 않습니다.<br>Google 개인정보처리방침: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+<li><strong>광고(Google AdMob, Google 사용자 메시지 플랫폼)</strong>: 구독하지 않은 이용자에게 하단 배너, 보상형 광고, 전면 광고를 보여 줍니다. Google 에 따르면 Google 모바일 광고 SDK 는 IP 주소(대략적인 위치 추정에 쓰일 수 있음), 앱 사용 정보(앱 실행, 탭, 동영상 시청 등), 진단 정보(앱 시작 시간, 응답 없음 비율 등), 기기 식별자(안드로이드 광고 ID, 앱 세트 ID 등)를 광고, 분석, 부정 사용 방지를 위해 자동으로 수집·공유하며, 전송 중 암호화합니다. 동의가 필요한 지역(유럽경제지역, 영국, 스위스 등)에서는 Google 동의 창이 표시되며, 앱 설정의 "개인정보 설정"에서 언제든 바꿀 수 있습니다. <strong>구독 중인 이용자에게는 광고를 요청하지 않습니다.</strong><br>Google 의 데이터 사용 방식: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></li>
+<li><strong>구독 결제(Google Play)</strong>: 결제는 Google Play 가 처리합니다. 앱과 개발자는 카드 번호 등 결제 수단 정보를 받지 않습니다.</li>
+<li><strong>구독 상태(RevenueCat)</strong>: 구독 확인과 구매 복원을 위해 RevenueCat 이 구매 내역(상품, 구매·갱신·만료 정보), 앱이 자동으로 만든 익명 사용자 ID(앱 설정의 "지원 ID"), 언어·통화 코드를 처리합니다. 앱은 RevenueCat 에 이름, 이메일, 전화번호를 보내지 않으며, 광고 ID 등 기기 식별자를 RevenueCat 이 자동으로 수집하는 기능을 꺼 두었습니다. 전송 중 암호화됩니다.<br>RevenueCat 개인정보처리방침: <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a></li>
 </ul>
+
+<h2>3. 백업</h2>
+<ul>
+<li><strong>안드로이드 백업</strong>: 앱은 안드로이드 자동 백업을 허용합니다. 기기에서 Google 백업을 켜 둔 경우, 앱 내부 정보(즐겨찾기, 경로, 폴더, 설정, 마지막 가상 위치)가 이용자의 Google 계정 백업에 포함될 수 있고, 앱을 다시 설치하거나 새 기기를 설정할 때 복원될 수 있습니다. 이 백업은 기기의 백업 설정에 따라 Google 이 처리하며 개발자는 접근할 수 없습니다.</li>
+<li><strong>Google Block Store(RevenueCat)</strong>: 구매 기록이 있는 경우 RevenueCat 라이브러리가 익명 사용자 ID 를 Google Block Store(Google 이 관리하는 기기 저장소로, Google 계정에 백업될 수 있음)에 저장합니다. 앱을 다시 설치한 뒤 구매를 다시 연결하기 위한 것이며, 구매 기록이 없으면 저장하지 않습니다.</li>
+</ul>
+
 <h2>4. 권한</h2>
 <ul>
-<li><strong>위치</strong>: 시뮬레이션 시작점과 위치 시뮬레이션 서비스 실행에 사용합니다.</li>
-<li><strong>다른 앱 위에 표시</strong>: 조이스틱과 조작 버튼을 다른 앱 위에 표시합니다.</li>
-<li><strong>알림</strong>: 시뮬레이션 실행 중 알림을 표시합니다.</li>
+<li><strong>위치(정확한 위치, 대략적인 위치)</strong>: 위와 같이 기기의 마지막 위치를 읽기 위해 사용합니다. 백그라운드 위치 권한은 요청하지 않습니다.</li>
 <li><strong>가상 위치 앱(개발자 옵션)</strong>: 앱이 시스템에 가상 위치를 제공할 수 있게 합니다. 이용자가 개발자 옵션에서 직접 지정합니다.</li>
+<li><strong>포그라운드 서비스(위치)</strong>: 이용자가 시작한 시뮬레이션을 다른 앱을 쓰는 동안에도 알림과 함께 계속 실행합니다. 알림에서 언제든 멈출 수 있습니다.</li>
+<li><strong>알림</strong>: 실행 상태와 멈춤 버튼을 보여 줍니다.</li>
+<li><strong>다른 앱 위에 표시</strong>: 조이스틱과 조작 버튼을 다른 앱 위에 보여 줍니다.</li>
+<li><strong>인터넷, 네트워크 상태</strong>: 지도, 광고, 구독 확인에 사용합니다.</li>
+<li><strong>광고 ID</strong>(광고 라이브러리가 추가): 위와 같이 광고에 사용합니다.</li>
+<li><strong>Google Play 결제</strong>: 구독 구매에 사용합니다.</li>
 </ul>
-<h2>5. 이용자의 선택</h2>
+
+<h2>5. 보관과 삭제</h2>
 <ul>
-<li>기기 설정(설정 &gt; Google &gt; 광고, 또는 기기에 따라 설정 &gt; 개인정보 보호 &gt; 광고)에서 맞춤형 광고를 끄거나 광고 ID를 재설정할 수 있습니다.</li>
-<li>유럽경제지역, 영국, 스위스에서는 앱 설정에서 광고 동의를 언제든 확인하고 변경할 수 있습니다.</li>
-<li>앱을 삭제하면 앱이 저장한 모든 정보가 삭제됩니다.</li>
+<li>앱에 저장된 정보는 앱을 삭제하거나 안드로이드 설정에서 앱 데이터를 지우면 삭제됩니다. Google 백업에 있는 사본은 이용자의 Google 계정 설정을 따릅니다.</li>
+<li><strong>구독 정보(RevenueCat) 삭제 요청</strong>: 앱 설정의 "지원 ID"와 함께 이메일로 요청하면, 개발자가 RevenueCat 에 해당 고객 정보의 삭제를 요청합니다. 삭제는 RevenueCat 에서 처리되며 즉시 완료되지 않을 수 있습니다.</li>
+<li><strong>정보 삭제는 구독 해지가 아닙니다.</strong> 결제를 멈추려면 Google Play 의 구독 관리에서 직접 해지해야 합니다. 해지하지 않은 구독은 Google Play 에서 계속 갱신될 수 있으며, 이후 "구매 복원"을 하면 구독 정보가 다시 연결될 수 있습니다.</li>
+<li>광고 관련 정보는 Google 의 정책을 따릅니다. 광고 ID 는 기기 설정에서 재설정하거나 삭제할 수 있습니다.</li>
 </ul>
+
 <h2>6. 아동</h2>
-<p>앱은 만 13세 미만 아동을 대상으로 하지 않으며, 아동의 정보를 알면서 수집하지 않습니다.</p>
+<p>앱은 만 13세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 알면서 수집하지 않습니다.</p>
+
 <h2>7. 변경</h2>
 <p>이 방침은 바뀔 수 있습니다. 변경 내용은 이 주소에 게시되는 때부터 적용되며, 위 시행일도 함께 바뀝니다.</p>
+
 <h2>8. 문의</h2>
-<p>이 방침에 관한 문의: <a href="mailto:rupioh99@gmail.com">rupioh99@gmail.com</a></p>
+<p>ohgoru — <a href="mailto:rupioh99@gmail.com">rupioh99@gmail.com</a></p>
   </article>
-  <footer><a href="/">← ohgoru apps</a></footer>
 </main>
 </body>
 </html>
