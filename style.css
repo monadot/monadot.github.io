@@ -47,6 +47,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
 .doc h2 { font-size: 19px; margin: 32px 0 8px; }
 .doc ul { padding-left: 20px; }
 .doc li { margin: 6px 0; }
+.doc a { overflow-wrap: anywhere; }   /* 긴 URL 이 휴대폰 폭에서 넘치지 않게 */
 .lang-switch { display: flex; gap: 8px; margin-bottom: 28px; }
 .lang-switch a {
   padding: 4px 12px;
