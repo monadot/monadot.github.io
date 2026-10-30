@@ -49,7 +49,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
 .doc li { margin: 6px 0; }
 .doc a { overflow-wrap: anywhere; }   /* 긴 URL 이 휴대폰 폭에서 넘치지 않게 */
 .doc [lang="ko"] { word-break: keep-all; }   /* 한글은 낱말 단위로 줄바꿈 */
-.lang-switch { display: flex; gap: 8px; margin-bottom: 28px; }
+.lang-switch { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .lang-switch a {
   padding: 4px 12px;
   border: 1px solid var(--line);
@@ -59,3 +59,8 @@ footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
 }
 .lang-switch a[aria-current="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
 hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0; }
+.doc .note { color: var(--muted); font-size: 14px; }
+.doc .back { margin-top: 48px; font-size: 14px; }
+@media (prefers-color-scheme: dark) {
+  .lang-switch a[aria-current="true"] { color: var(--bg); }   /* 밝은 강조색 위 대비 */
+}
