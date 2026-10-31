@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tempona.app.qa",
+      "sha256_cert_fingerprints": [
+        "57:01:BB:CC:DC:39:E4:D2:23:8E:BF:09:57:81:1C:9D:E2:39:55:58:E0:D9:FD:35:B1:D1:B6:31:AD:87:80:95"
+      ]
+    }
+  }
+]

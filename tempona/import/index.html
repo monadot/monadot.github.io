@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- No network access at all from this page: the shared presets (in the
+       URL fragment, never sent to the server) stay in the browser. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-3g7Vl988L4Tecblgbg4z1jMd6Q6tFcLLnnFNAVCS+aY='; style-src 'self' 'unsafe-inline'; img-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+  <title>Tempona preset link</title>
+  <link rel="stylesheet" href="/style.css?v=4">
+  <style>
+    .doc .error { color: #c5221f; }
+    @media (prefers-color-scheme: dark) { .doc .error { color: #f28b82; } }
+    .doc .button {
+      display: block; width: 100%; margin: 16px 0 6px; padding: 12px 16px;
+      border: 1px solid var(--accent); border-radius: 12px; background: transparent;
+      color: var(--accent); font: inherit; font-weight: 600; text-align: center;
+      text-decoration: none; cursor: pointer;
+    }
+    .doc .button.primary { background: var(--accent); color: #fff; }
+    @media (prefers-color-scheme: dark) { .doc .button.primary { color: var(--bg); } }
+    .doc .code { width: 100%; min-height: 6em; font: 13px/1.4 ui-monospace, monospace; overflow-wrap: anywhere; }
+    .doc ol { padding-left: 22px; margin: 8px 0 0; }
+    .doc ol li { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+<main class="doc">
+  <article id="app">
+    <h1>Tempona preset link</h1>
+    <noscript><p>Open this link on an Android phone with Tempona installed, or copy the whole message and use Presets › Paste to import in Tempona.</p></noscript>
+  </article>
+  <p class="back"><a href="/">Monadot Studio</a> · <a href="/tempona/privacy/">Privacy Policy</a></p>
+</main>
+<script>(function () {
+  'use strict';
+  // Tempona share links: https://monadot.github.io/tempona/import/#v1=<code>.
+  // The code stays in this page: nothing is sent anywhere (no requests,
+  // no analytics; the page's CSP blocks network access). Shared names are
+  // shown with textContent only, never as HTML.
+  var PKG = 'com.tempona.app';
+  var MAX_CODE = 16384, MAX_JSON = 65536, MAX_PRESETS = 100, VERSION = 1;
+  var T = {
+    en: {
+      title: 'Tempona preset link',
+      lead: 'Someone shared Tempona metronome presets with you.',
+      none: 'This page opens Tempona preset links. Tap the link in the message on an Android phone with Tempona installed.',
+      folder: function (n, c) { return '“' + n + '” · ' + c + (c === 1 ? ' preset' : ' presets'); },
+      preset: 'Preset',
+      open: 'Open in Tempona',
+      openNote: 'If Tempona is installed, it opens with an import preview. Nothing is saved until you confirm.',
+      copy: 'Copy preset code',
+      copied: 'Copied. Now open Tempona › Presets › Paste to import.',
+      copyFail: 'Could not copy. Select the code below and copy it.',
+      steps: 'If the link does not open: copy the code, open Tempona, go to Presets and tap Paste to import.',
+      install: 'Get Tempona on Google Play',
+      installNote: 'Tempona may not be available on Google Play yet.',
+      invalid: 'This link is damaged or incomplete. Ask for the link again, or copy the whole message and use Paste to import in Tempona.',
+      tooNew: 'This link was made by a newer version of Tempona. Update Tempona to import it.',
+      noSummary: 'The preset list cannot be shown in this browser, but the link can still be opened in Tempona.',
+      privacy: 'The presets stay in this link. This page sends nothing anywhere.'
+    },
+    ko: {
+      title: 'Tempona 프리셋 링크',
+      lead: 'Tempona 메트로놈 프리셋을 공유받았습니다.',
+      none: '이 페이지는 Tempona 프리셋 링크를 여는 곳입니다. Tempona가 설치된 Android 휴대폰에서 메시지의 링크를 누르세요.',
+      folder: function (n, c) { return '「' + n + '」 · ' + c + '곡'; },
+      preset: '프리셋',
+      open: 'Tempona에서 열기',
+      openNote: 'Tempona가 설치되어 있으면 가져오기 미리보기가 열립니다. 확인하기 전에는 아무것도 저장되지 않습니다.',
+      copy: '프리셋 코드 복사',
+      copied: '복사했습니다. 이제 Tempona › 프리셋 › 붙여넣기로 가져오기를 누르세요.',
+      copyFail: '복사하지 못했습니다. 아래 코드를 선택해 복사하세요.',
+      steps: '링크가 열리지 않으면 코드를 복사한 뒤 Tempona › 프리셋 › 붙여넣기로 가져오기를 누르세요.',
+      install: 'Google Play에서 Tempona 받기',
+      installNote: 'Tempona는 아직 Google Play에 공개되지 않았을 수 있습니다.',
+      invalid: '링크가 손상되었거나 일부가 빠졌습니다. 링크를 다시 받거나, 메시지 전체를 복사해 Tempona에서 붙여넣기로 가져오세요.',
+      tooNew: '새 버전의 Tempona에서 만든 링크입니다. Tempona를 업데이트한 후 가져오세요.',
+      noSummary: '이 브라우저에서는 프리셋 목록을 보여 줄 수 없지만, Tempona에서는 링크를 열 수 있습니다.',
+      privacy: '프리셋은 이 링크 안에만 있습니다. 이 페이지는 아무것도 전송하지 않습니다.'
+    },
+    ja: {
+      title: 'Tempona プリセットリンク',
+      lead: 'Tempona メトロノームのプリセットが共有されました。',
+      none: 'このページは Tempona のプリセットリンクを開くためのものです。Tempona をインストールした Android スマートフォンで、メッセージのリンクをタップしてください。',
+      folder: function (n, c) { return '「' + n + '」 · ' + c + '曲'; },
+      preset: 'プリセット',
+      open: 'Tempona で開く',
+      openNote: 'Tempona がインストールされていれば、読み込みのプレビューが開きます。確定するまで何も保存されません。',
+      copy: 'プリセットコードをコピー',
+      copied: 'コピーしました。Tempona › プリセット › 貼り付けて読み込む をタップしてください。',
+      copyFail: 'コピーできませんでした。下のコードを選択してコピーしてください。',
+      steps: 'リンクが開かない場合は、コードをコピーして Tempona › プリセット › 貼り付けて読み込む をタップしてください。',
+      install: 'Google Play で Tempona を入手',
+      installNote: 'Tempona はまだ Google Play で公開されていない場合があります。',
+      invalid: 'リンクが壊れているか、一部が欠けています。リンクをもう一度受け取るか、メッセージ全体をコピーして Tempona で貼り付けて読み込んでください。',
+      tooNew: '新しいバージョンの Tempona で作られたリンクです。Tempona を更新してから読み込んでください。',
+      noSummary: 'このブラウザではプリセットの一覧を表示できませんが、Tempona ではリンクを開けます。',
+      privacy: 'プリセットはこのリンクの中にだけあります。このページは何も送信しません。'
+    },
+    'zh-hans': {
+      title: 'Tempona 预设链接',
+      lead: '有人与你分享了 Tempona 节拍器预设。',
+      none: '此页面用于打开 Tempona 预设链接。请在已安装 Tempona 的 Android 手机上点按消息中的链接。',
+      folder: function (n, c) { return '“' + n + '” · ' + c + ' 首'; },
+      preset: '预设',
+      open: '在 Tempona 中打开',
+      openNote: '如果已安装 Tempona，将打开导入预览。确认之前不会保存任何内容。',
+      copy: '复制预设代码',
+      copied: '已复制。请打开 Tempona › 预设 › 粘贴导入。',
+      copyFail: '无法复制。请选择下方的代码并复制。',
+      steps: '如果链接无法打开：复制代码，打开 Tempona › 预设，点按“粘贴导入”。',
+      install: '在 Google Play 获取 Tempona',
+      installNote: 'Tempona 可能尚未在 Google Play 上架。',
+      invalid: '链接已损坏或不完整。请重新获取链接，或复制整条消息后在 Tempona 中粘贴导入。',
+      tooNew: '此链接由更新版本的 Tempona 生成。请更新 Tempona 后再导入。',
+      noSummary: '此浏览器无法显示预设列表，但仍可在 Tempona 中打开链接。',
+      privacy: '预设只保存在此链接中。此页面不会发送任何内容。'
+    },
+    'zh-hant': {
+      title: 'Tempona 預設組合連結',
+      lead: '有人與你分享了 Tempona 節拍器預設組合。',
+      none: '此頁面用於開啟 Tempona 預設組合連結。請在已安裝 Tempona 的 Android 手機上點按訊息中的連結。',
+      folder: function (n, c) { return '「' + n + '」 · ' + c + ' 首'; },
+      preset: '預設組合',
+      open: '在 Tempona 中開啟',
+      openNote: '如果已安裝 Tempona，將開啟匯入預覽。確認之前不會儲存任何內容。',
+      copy: '複製預設組合代碼',
+      copied: '已複製。請開啟 Tempona › 預設組合 › 貼上匯入。',
+      copyFail: '無法複製。請選取下方的代碼並複製。',
+      steps: '如果連結無法開啟：複製代碼，開啟 Tempona › 預設組合，點按「貼上匯入」。',
+      install: '在 Google Play 取得 Tempona',
+      installNote: 'Tempona 可能尚未在 Google Play 上架。',
+      invalid: '連結已損壞或不完整。請重新取得連結，或複製整則訊息後在 Tempona 中貼上匯入。',
+      tooNew: '此連結由較新版本的 Tempona 產生。請更新 Tempona 後再匯入。',
+      noSummary: '此瀏覽器無法顯示預設組合清單，但仍可在 Tempona 中開啟連結。',
+      privacy: '預設組合只存在於此連結中。此頁面不會傳送任何內容。'
+    },
+    fr: {
+      title: 'Lien de préréglages Tempona',
+      lead: 'Quelqu’un a partagé avec vous des préréglages du métronome Tempona.',
+      none: 'Cette page ouvre les liens de préréglages Tempona. Touchez le lien du message sur un téléphone Android où Tempona est installé.',
+      folder: function (n, c) { return '« ' + n + ' » · ' + c + (c === 1 ? ' préréglage' : ' préréglages'); },
+      preset: 'Préréglage',
+      open: 'Ouvrir dans Tempona',
+      openNote: 'Si Tempona est installé, un aperçu de l’importation s’ouvre. Rien n’est enregistré avant votre confirmation.',
+      copy: 'Copier le code des préréglages',
+      copied: 'Copié. Ouvrez Tempona › Préréglages › Coller pour importer.',
+      copyFail: 'Copie impossible. Sélectionnez le code ci-dessous et copiez-le.',
+      steps: 'Si le lien ne s’ouvre pas : copiez le code, ouvrez Tempona › Préréglages et touchez Coller pour importer.',
+      install: 'Télécharger Tempona sur Google Play',
+      installNote: 'Tempona n’est peut-être pas encore disponible sur Google Play.',
+      invalid: 'Ce lien est endommagé ou incomplet. Demandez-le à nouveau, ou copiez tout le message et utilisez Coller pour importer dans Tempona.',
+      tooNew: 'Ce lien a été créé par une version plus récente de Tempona. Mettez Tempona à jour pour l’importer.',
+      noSummary: 'Ce navigateur ne peut pas afficher la liste des préréglages, mais le lien peut toujours être ouvert dans Tempona.',
+      privacy: 'Les préréglages restent dans ce lien. Cette page n’envoie rien.'
+    }
+  };
+  var LANGS = [['en', 'English'], ['ko', '한국어'], ['ja', '日本語'], ['zh-hans', '简体中文'], ['zh-hant', '繁體中文'], ['fr', 'Français']];
+  var HTML_LANG = { en: 'en', ko: 'ko', ja: 'ja', 'zh-hans': 'zh-Hans', 'zh-hant': 'zh-Hant', fr: 'fr' };
+
+  function pickLang() {
+    var list = navigator.languages || [navigator.language || 'en'];
+    for (var i = 0; i < list.length; i++) {
+      var l = String(list[i]).toLowerCase();
+      if (l.indexOf('ko') === 0) return 'ko';
+      if (l.indexOf('ja') === 0) return 'ja';
+      if (l.indexOf('fr') === 0) return 'fr';
+      if (l.indexOf('zh') === 0) {
+        return /hant|-tw|-hk|-mo/.test(l) ? 'zh-hant' : 'zh-hans';
+      }
+      if (l.indexOf('en') === 0) return 'en';
+    }
+    return 'en';
+  }
+
+  // The link part: #v1=<code> (or ?v1=<code>); strict characters only.
+  function readLink() {
+    var raw = location.hash.length > 1 ? location.hash.slice(1) : location.search.slice(1);
+    if (!raw) return { state: 'none' };
+    var m = /^v(\d{1,6})(?:=|%3[dD])([A-Za-z0-9_-]+)$/.exec(raw);
+    if (!m) return { state: 'invalid' };
+    var version = parseInt(m[1], 10);
+    if (version < 1) return { state: 'invalid' };
+    if (version > VERSION) return { state: 'tooNew' };
+    if (m[2].length > MAX_CODE || m[2].length % 4 === 1) return { state: 'invalid' };
+    return { state: 'ok', code: m[2] };
+  }
+
+  function bytesOf(code) {
+    var b64 = code.replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    var bin = atob(b64);
+    var out = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+
+  // Unpacks at most MAX_JSON bytes (a small link must not unpack to
+  // megabytes) and reads only names, BPM and meters for the summary.
+  function summary(code) {
+    if (typeof DecompressionStream !== 'function') return Promise.resolve(null);
+    var data = bytesOf(code);
+    if (data.length < 18 || data[0] !== 0x1f || data[1] !== 0x8b) return Promise.reject(new Error('gzip'));
+    var stream = new Blob([data]).stream().pipeThrough(new DecompressionStream('gzip'));
+    var reader = stream.getReader();
+    var chunks = [], total = 0;
+    function pump() {
+      return reader.read().then(function (r) {
+        if (r.done) return;
+        total += r.value.length;
+        if (total > MAX_JSON) { reader.cancel(); throw new Error('size'); }
+        chunks.push(r.value);
+        return pump();
+      });
+    }
+    return pump().then(function () {
+      var all = new Uint8Array(total), at = 0;
+      chunks.forEach(function (c) { all.set(c, at); at += c.length; });
+      var json = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(all));
+      if (!json || json.v !== 1 || !Array.isArray(json.p) || json.p.length === 0 || json.p.length > MAX_PRESETS) {
+        throw new Error('shape');
+      }
+      return json;
+    });
+  }
+
+  function clean(s, max) {
+    s = String(s).replace(/[\u0000-\u001f\u007f-\u009f\u200b-\u200f\u2028-\u202e\u2060-\u2069\ufeff]/g, ' ').replace(/\s+/g, ' ').trim();
+    return s.length > max ? s.slice(0, max) : s;
+  }
+
+  var lang = pickLang();
+  var link = readLink();
+  var info = null, broken = false;
+
+  function el(tag, text, cls) {
+    var e = document.createElement(tag);
+    if (text != null) e.textContent = text;
+    if (cls) e.className = cls;
+    return e;
+  }
+
+  function render() {
+    var t = T[lang];
+    document.documentElement.lang = HTML_LANG[lang];
+    document.title = t.title;
+    var root = document.getElementById('app');
+    root.textContent = '';
+
+    var nav = el('nav', null, 'lang-switch');
+    nav.setAttribute('aria-label', 'Language');
+    LANGS.forEach(function (pair) {
+      var a = el('a', pair[1]);
+      a.href = '#';
+      a.lang = HTML_LANG[pair[0]];
+      if (pair[0] === lang) a.setAttribute('aria-current', 'true');
+      a.addEventListener('click', function (ev) { ev.preventDefault(); lang = pair[0]; render(); });
+      nav.appendChild(a);
+    });
+    root.appendChild(nav);
+    root.appendChild(el('h1', t.title));
+
+    var state = broken ? 'invalid' : link.state;
+    if (state !== 'ok') {
+      root.appendChild(el('p', state === 'none' ? t.none : state === 'tooNew' ? t.tooNew : t.invalid, state === 'none' ? null : 'error'));
+    } else {
+      root.appendChild(el('p', t.lead));
+      if (info) {
+        var card = el('section', null, 'card');
+        if (info.k === 'folder') card.appendChild(el('h2', t.folder(clean(info.n || '', 40) || t.preset, info.p.length)));
+        var ol = el('ol');
+        info.p.slice(0, 100).forEach(function (p) {
+          if (!p || typeof p !== 'object') return;
+          var bpm = typeof p.b === 'number' && isFinite(p.b) ? Math.round(p.b) : 120;
+          var meter = typeof p.t === 'string' && /^\d{1,2}\/\d{1,2}$/.test(p.t) ? p.t : '4/4';
+          ol.appendChild(el('li', (clean(p.n || '', 40) || t.preset) + ' — ' + bpm + ' BPM · ' + meter));
+        });
+        card.appendChild(ol);
+        root.appendChild(card);
+      } else if (info === false) {
+        root.appendChild(el('p', t.noSummary, 'note'));
+      }
+
+      if (/Android/i.test(navigator.userAgent)) {
+        var open = el('a', t.open, 'button primary');
+        open.href = 'intent://monadot.github.io/tempona/import/?v' + VERSION + '=' + link.code +
+          '#Intent;scheme=https;package=' + PKG + ';end';
+        root.appendChild(open);
+        root.appendChild(el('p', t.openNote, 'note'));
+      }
+
+      var copy = el('button', t.copy, 'button');
+      copy.type = 'button';
+      var status = el('p', '', 'note');
+      status.setAttribute('role', 'status');
+      var codeText = 'TEMPONA' + VERSION + ':' + link.code;
+      copy.addEventListener('click', function () {
+        var done = function () { status.textContent = t.copied; };
+        var fail = function () { status.textContent = t.copyFail; box.hidden = false; box.select(); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(codeText).then(done, fail);
+        } else {
+          box.hidden = false; box.select();
+          try { document.execCommand('copy') ? done() : fail(); } catch (e) { fail(); }
+        }
+      });
+      var box = el('textarea', null, 'code');
+      box.readOnly = true;
+      box.value = codeText;
+      box.hidden = true;
+      box.setAttribute('aria-label', t.copy);
+      root.appendChild(copy);
+      root.appendChild(status);
+      root.appendChild(box);
+      root.appendChild(el('p', t.steps));
+    }
+
+    var install = el('a', t.install, 'button');
+    install.href = 'https://play.google.com/store/apps/details?id=' + PKG;
+    install.rel = 'noreferrer';
+    root.appendChild(install);
+    root.appendChild(el('p', t.installNote, 'note'));
+    root.appendChild(el('p', t.privacy, 'note'));
+  }
+
+  render();
+  if (link.state === 'ok') {
+    summary(link.code).then(function (json) {
+      info = json === null ? false : json;
+      render();
+    }, function () {
+      broken = true;
+      render();
+    });
+  }
+})();
+</script>
+</body>
+</html>
