@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- No network access at all from this page: the shared presets (in the
        URL fragment, never sent to the server) stay in the browser. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-3g7Vl988L4Tecblgbg4z1jMd6Q6tFcLLnnFNAVCS+aY='; style-src 'self' 'unsafe-inline'; img-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-irmHBnYhQgu/ZNZ+HJk++ySKm7PWA1GYmxTtgLc9X0A='; style-src 'self' 'unsafe-inline'; img-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex">
   <title>Tempona preset link</title>
@@ -234,6 +234,26 @@
 
   var lang = pickLang();
   var link = readLink();
+  var ua = navigator.userAgent || '';
+  var android = /Android/i.test(ua);
+  // KakaoTalk opens links in its own browser, which never hands them to
+  // Android, so App Links cannot open Tempona from there. Its
+  // "open externally" address gives the link back to Android, which then
+  // opens Tempona (a verified link) or the phone's browser.
+  var kakao = /KAKAOTALK/i.test(ua);
+
+  function canonical() {
+    return 'https://monadot.github.io/tempona/import/#v' + VERSION + '=' + link.code;
+  }
+
+  // Where "Open in Tempona" goes. No package name: Android picks the app
+  // that verified this link (release or QA build); without one, the page
+  // simply shows again.
+  function openUrl() {
+    if (kakao) return 'kakaotalk://web/openExternal?url=' + encodeURIComponent(canonical());
+    return 'intent://monadot.github.io/tempona/import/?v' + VERSION + '=' + link.code +
+      '#Intent;scheme=https;end';
+  }
   var info = null, broken = false;
 
   function el(tag, text, cls) {
@@ -284,10 +304,9 @@
         root.appendChild(el('p', t.noSummary, 'note'));
       }
 
-      if (/Android/i.test(navigator.userAgent)) {
+      if (android) {
         var open = el('a', t.open, 'button primary');
-        open.href = 'intent://monadot.github.io/tempona/import/?v' + VERSION + '=' + link.code +
-          '#Intent;scheme=https;package=' + PKG + ';end';
+        open.href = openUrl();
         root.appendChild(open);
         root.appendChild(el('p', t.openNote, 'note'));
       }
@@ -327,6 +346,10 @@
   }
 
   render();
+  // In KakaoTalk, hand the link to Android right away (once).
+  if (link.state === 'ok' && android && kakao) {
+    location.href = openUrl();
+  }
   if (link.state === 'ok') {
     summary(link.code).then(function (json) {
       info = json === null ? false : json;
