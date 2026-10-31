@@ -7,7 +7,8 @@
       "namespace": "android_app",
       "package_name": "com.tempona.app",
       "sha256_cert_fingerprints": [
-        "1A:D4:EC:4A:B8:E6:01:80:56:D9:D1:EF:33:08:8C:C0:83:48:C1:23:2B:32:FF:46:08:94:BA:D0:0F:6E:30:DB"
+        "1A:D4:EC:4A:B8:E6:01:80:56:D9:D1:EF:33:08:8C:C0:83:48:C1:23:2B:32:FF:46:08:94:BA:D0:0F:6E:30:DB",
+        "83:A7:13:19:F7:36:16:EC:1C:FF:F7:F5:C6:58:4C:73:59:52:4F:D4:0E:E3:1F:F9:6A:D9:7C:34:E8:9E:7D:EF"
       ]
     }
   },
